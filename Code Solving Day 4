@@ -1,0 +1,58 @@
+1.Read from STDIN, Write to STDOUT
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int N = Integer.parseInt(br.readLine());  
+        String S = br.readLine();                 
+
+        System.out.println(N * 2); 
+        System.out.println(S);    
+    }
+}
+2.Parity-Binary Sort
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+
+class TestClass {
+    public static void main(String args[]) throws Exception {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int t = Integer.parseInt(br.readLine());  
+        while (t-- > 0) {
+
+            int n = Integer.parseInt(br.readLine());
+            String[] arr = br.readLine().split(" ");
+
+            ArrayList<Integer> even = new ArrayList<>();
+            ArrayList<Integer> odd = new ArrayList<>();
+
+            for (int i = 0; i < n; i++) {
+                int num = Integer.parseInt(arr[i]);
+
+                int bits = Integer.bitCount(num);  
+
+                if (bits % 2 == 0)
+                    even.add(num);
+                else
+                    odd.add(num);
+            }
+
+            Collections.sort(even);
+            Collections.sort(odd);
+
+            for (int x : even)
+                System.out.print(x + " ");
+
+            for (int x : odd)
+                System.out.print(x + " ");
+
+            System.out.println();
+        }
+    }
+}
